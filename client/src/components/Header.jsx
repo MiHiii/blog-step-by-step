@@ -35,7 +35,7 @@ export default function Header() {
           className="hidden lg:inline"
         />
       </form>
-      <Button outline className="w-12 h-10 lg:hidden" color="red" pill>
+      <Button outline className="w-12 h-10 lg:hidden" color="gray" pill>
         <AiOutlineSearch />
       </Button>
       <div className="flex gap-2 md:order-2">
@@ -43,7 +43,9 @@ export default function Header() {
           <FaMoon />
         </Button>
         <Link to={"/sign-in"}>
-          <Button gradientDuoTone={"redToYellow"}>Sign In</Button>
+          <Button gradientDuoTone={"redToYellow"} outline>
+            Sign In
+          </Button>
         </Link>
         <Navbar.Toggle />
       </div>
