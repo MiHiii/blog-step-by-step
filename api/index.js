@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 import userRoutes from "./routes/user.route.js";
+import authRoutes from "./routes/auth.route.js";
 
 //Để có thể kết nối với môi trường
 dotenv.config();
@@ -19,6 +20,8 @@ mongoose
 
 const app = express();
 
+app.use(express.json());
+
 app.listen(3000, () => {
   console.log("Sever is running on port 3000!");
 });
@@ -30,3 +33,4 @@ app.listen(3000, () => {
 
 //Có api riêng routes thay "get" => "use"
 app.use("/api/user", userRoutes);
+app.use("/api/auth", authRoutes);
