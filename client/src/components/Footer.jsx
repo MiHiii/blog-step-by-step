@@ -1,7 +1,7 @@
-import { Footer } from "flowbite-react";
-import { Link } from "react-router-dom";
-import { BsFacebook, BsTwitterX } from "react-icons/bs";
-import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
+import { Footer } from 'flowbite-react';
+import { Link } from 'react-router-dom';
+import { BsFacebook, BsTwitterX, BsThreads } from 'react-icons/bs';
+import { AiFillGithub, AiFillInstagram } from 'react-icons/ai';
 
 export default function FooterCom() {
   return (
@@ -84,12 +84,12 @@ export default function FooterCom() {
             />
             <Footer.Icon href="https://github.com/MiHiii" icon={AiFillGithub} />
             <Footer.Icon
-              href="https://www.instagram.com/hieupham761/"
+              href="https://www.instagram.com/mihi.0811/"
               icon={AiFillInstagram}
             />
             <Footer.Icon
-              href="https://www.linkedin.com/in/mihi-undefined-49203527a/"
-              icon={AiFillLinkedin}
+              href="https://www.threads.net/@mihi.0811"
+              icon={BsThreads}
             />
           </div>
         </div>
