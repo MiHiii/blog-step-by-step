@@ -32,6 +32,7 @@ export default function DashProfile() {
   const [imageFileUploading, setImageFileUploading] = useState(false);
   const [updateUserSuccess, setUpdateUserSuccess] = useState(null);
   const [updateUserError, setUpdateUserError] = useState(null);
+  const [showAlert, setShowAlert] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({});
   const filePickerRef = useRef();
@@ -48,7 +49,16 @@ export default function DashProfile() {
       uploadImage();
     }
   }, [imageFile]);
-
+  // Ẩn alert sau 5s
+  useEffect(() => {
+    if (updateSuccess || updateUserError || error) {
+      setShowAlert(true);
+      const timer = setTimeout(() => {
+        setShowAlert(false);
+      }, 10000);
+      return () => clearTimeout(timer);
+    }
+  }, [updateSuccess, updateUserError, error]);
   const uploadImage = async () => {
     // service firebase.storage {
     //   match /b/{bucket}/o {
@@ -235,7 +245,7 @@ export default function DashProfile() {
         />
         <Button
           type='submit'
-          gradientDuoTone='purpleToBlue'
+          gradientDuoTone='tealToLime'
           outline
           disabled={loading || imageFileUploading}
         >
@@ -261,20 +271,24 @@ export default function DashProfile() {
           Sign Out
         </span>
       </div>
-      {updateUserSuccess && (
-        <Alert color='success' className='mt-5'>
-          {updateUserSuccess}
-        </Alert>
-      )}
-      {updateUserError && (
-        <Alert color='failure' className='mt-5'>
-          {updateUserError}
-        </Alert>
-      )}
-      {error && (
-        <Alert color='failure' className='mt-5'>
-          {error}
-        </Alert>
+      {showAlert && (
+        <>
+          {updateUserSuccess && (
+            <Alert color='success' className='mt-5'>
+              {updateUserSuccess}
+            </Alert>
+          )}
+          {updateUserError && (
+            <Alert color='failure' className='mt-5'>
+              {updateUserError}
+            </Alert>
+          )}
+          {error && (
+            <Alert color='failure' className='mt-5'>
+              {error}
+            </Alert>
+          )}
+        </>
       )}
       <Modal
         show={showModal}
