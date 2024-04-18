@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema(
   {
@@ -19,12 +19,16 @@ const userSchema = new mongoose.Schema(
     profilePicture: {
       type: String,
       default:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKXAKjp8fE3184PDV2Z5SgVCbC2OGqKY2uL-LSCkxfJw&s",
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKXAKjp8fE3184PDV2Z5SgVCbC2OGqKY2uL-LSCkxfJw&s',
+    },
+    isAdmin: {
+      type: Boolean,
+      default: false,
     },
   },
   { timestamps: true }
 );
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model('User', userSchema);
 
 export default User;
