@@ -38,13 +38,17 @@ export const getposts = async (req, res, next) => {
       ...(req.query.postId && { _id: req.query.postId }),
       ...(req.query.searchTerm && {
         $or: [
+          // tìm kiếm theo title và content
           { title: { $regex: req.query.searchTerm, $options: 'i' } },
           { content: { $regex: req.query.searchTerm, $options: 'i' } },
         ],
       }),
     })
+      // sắp xếp theo updatedAt
       .sort({ updatedAt: sortDirection })
+      // bỏ qua việc lấy posts từ 0 đến startIndex
       .skip(startIndex)
+      // giới hạn số lượng posts
       .limit(limit);
 
     const totalPosts = await Post.countDocuments();
@@ -66,6 +70,18 @@ export const getposts = async (req, res, next) => {
       totalPosts,
       lastMonthPosts,
     });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const deletepost = async (req, res, next) => {
+  if (!req.user.isAdmin || req.user.id !== req.params.userId) {
+    return next(errorHandler(403, 'You are not allowed to delete this post!'));
+  }
+  try {
+    await Post.findByIdAndDelete(req.params.postId);
+    res.status(200).json('Post has been deleted!');
   } catch (error) {
     next(error);
   }
