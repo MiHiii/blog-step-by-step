@@ -32,6 +32,11 @@ body {
   text-decoration: underline;
 }
 
-/* .dark .post-content a {
-  color: red;
-} */
+.dark .post-content a {
+  color: red !important;
+}
+
+.dark code {
+  background-color: rgb(214, 214, 214);
+  color: black;
+}
