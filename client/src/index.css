@@ -6,6 +6,9 @@ body {
   height: 100vh;
 }
 
+code {
+  background: none !important;
+}
 /* Custom react quill */
 .ql-editor {
   font-size: 1.05rem;
@@ -32,11 +35,24 @@ body {
   text-decoration: underline;
 }
 
-.dark .post-content a {
-  color: red !important;
+.post-content code {
+  background-color: #ececec;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.9rem;
 }
 
-.dark code {
-  background-color: rgb(214, 214, 214);
-  color: black;
+.dark .post-content code {
+  background-color: #1e293b;
+  border: 1px solid rgb(61, 69, 83);
+}
+
+.post-content pre {
+  background-color: #1e293b;
+  border: 1px solid rgb(61, 69, 83);
+  color: #e8e7e7;
+  white-space: pre-wrap;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
 }
