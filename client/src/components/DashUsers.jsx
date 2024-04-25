@@ -111,7 +111,7 @@ export default function DashUsers() {
                         setShowModal(true);
                         setUserIdToDelete(user._id);
                       }}
-                      className='font-medium hover:underline text-red-500'
+                      className='font-medium hover:underline text-red-500 cursor-pointer'
                     >
                       Delete
                     </span>

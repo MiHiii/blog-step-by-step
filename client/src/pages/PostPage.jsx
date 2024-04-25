@@ -71,9 +71,9 @@ export default function PostPage() {
         dangerouslySetInnerHTML={{ __html: post && post.content }}
       ></div>
       <div className='max-w-4xl mx-auto w-full '>
-        <CallToAction postId={post._id} />
+        <CallToAction />
       </div>
-      <CommentSection />
+      <CommentSection postId={post._id} />
     </main>
   );
 }
