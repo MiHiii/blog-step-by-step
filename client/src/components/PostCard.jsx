@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 
 export default function PostCard({ post }) {
   return (
-    <div className='group relative w-full border h-[380px] overflow-hidden rounded-lg sm:w-[350px] dark:border-white border hover:border-2 border-slate-500 transition-all'>
+    <div className='group relative w-full border h-[370px] overflow-hidden rounded-lg sm:w-[350px] dark:border-white border hover:border-2 border-slate-500 transition-all'>
       <Link to={`/post/${post.slug}`}>
         <img
           src={post.image}
           alt={post.title}
-          className='h-[260px] w-full object-cover group-hover:h-[200px] transition-all duration-300 z-20'
+          className='h-[240px] w-full object-cover group-hover:h-[200px] transition-all duration-300 z-20'
         />
         <div className='p-3 flex flex-col gap-2'>
           {/* Cần import line clamp vào FE để sử dụng line-clamp */}
