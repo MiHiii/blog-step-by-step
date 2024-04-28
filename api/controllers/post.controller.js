@@ -27,9 +27,6 @@ export const create = async (req, res, next) => {
 };
 
 export const getposts = async (req, res, next) => {
-  if (!req.user.isAdmin) {
-    return next(errorHandler(403, 'You are not allowed to get posts!'));
-  }
   try {
     const startIndex = parseInt(req.query.startIndex) || 0;
     const limit = parseInt(req.query.limit) || 9;
